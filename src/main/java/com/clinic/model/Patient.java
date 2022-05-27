@@ -5,7 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "patient")
-public class Patients {
+public class Patient {
 
     private int id;
     private String patient_name;
@@ -14,10 +14,10 @@ public class Patients {
     private String patient_address;
     private Date patient_birthdate;
 
-    public Patients() {
+    public Patient() {
     }
 
-    public Patients(int id, String patient_name, String patient_surname, String patient_email, String patient_address, Date patient_birthdate) {
+    public Patient(int id, String patient_name, String patient_surname, String patient_email, String patient_address, Date patient_birthdate) {
         this.id = id;
         this.patient_name = patient_name;
         this.patient_surname = patient_surname;

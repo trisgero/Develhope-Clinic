@@ -25,8 +25,6 @@ public class Patient {
         this.patient_address = patient_address;
         this.patient_birthdate = patient_birthdate;
     }
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 

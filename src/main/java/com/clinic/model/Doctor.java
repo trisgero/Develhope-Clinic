@@ -23,10 +23,8 @@ public class Doctor {
         this.doctor_address = doctor_address;
         this.doctor_specialization = doctor_specialization;
     }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     public int getDoctor_id() {
         return doctor_id;
     }

@@ -10,7 +10,7 @@ public class User{
     private Patient patient_id;
     private Doctor doctor_id;
 
-    public User_kind user_kind;
+    public userKind user_kind;
     private String username;
     private String password;
 
@@ -68,12 +68,9 @@ public class User{
     public void setPassword(String password) {
         this.password = password;
     }
-
-
-
 }
 
-enum User_kind {
+enum userKind {
     PATIENT,
     DOCTORS,
     SECRETARY;

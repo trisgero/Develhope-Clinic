@@ -60,4 +60,5 @@ public class Appointment {
     public void setAppointment_date(Date appointment_date) {
         this.appointment_date = appointment_date;
     }
+
 }

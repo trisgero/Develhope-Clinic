@@ -1,7 +1,7 @@
-package com.clinic.controller;
+package com.clinic.controllers;
 
-import com.clinic.model.Patient;
-import com.clinic.service.PatientService;
+import com.clinic.models.Patient;
+import com.clinic.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +40,7 @@ public class PatientController {
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@RequestBody Patient patient, @PathVariable Integer patient_id) {
         try {
-            Patient existUser = patientService.getPatient(patient_id);
+            Patient existPatient = patientService.getPatient(patient_id);
             patient.setPatient_id(patient_id);
             patientService.savePatient(patient);
             return new ResponseEntity<>(HttpStatus.OK);

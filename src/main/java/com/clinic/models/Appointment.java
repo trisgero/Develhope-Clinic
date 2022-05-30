@@ -1,6 +1,4 @@
-package com.clinic.model;
-
-import org.hibernate.cache.spi.support.DirectAccessRegionTemplate;
+package com.clinic.models;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -10,6 +8,7 @@ import java.util.List;
 @Table(name = "appointment")
 
 public class Appointment {
+
     private int appointment_id;
     private List<Patient> patient_id;
     private List<Doctor> doctor_id;

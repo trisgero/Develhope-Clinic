@@ -1,7 +1,7 @@
-package com.clinic.controller;
+package com.clinic.controllers;
 
-import com.clinic.model.Appointment;
-import com.clinic.service.AppointmentService;
+import com.clinic.models.Appointment;
+import com.clinic.services.AppointmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,7 @@
-package com.clinic.controller;
+package com.clinic.controllers;
 
-import com.clinic.model.Doctor;
-import com.clinic.service.DoctorService;
+import com.clinic.models.Doctor;
+import com.clinic.services.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

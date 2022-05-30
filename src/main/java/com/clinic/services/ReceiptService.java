@@ -1,7 +1,7 @@
-package com.clinic.service;
+package com.clinic.services;
 
-import com.clinic.model.Receipt;
-import com.clinic.repository.ReceiptRepository;
+import com.clinic.models.Receipt;
+import com.clinic.repositories.ReceiptRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

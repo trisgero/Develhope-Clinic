@@ -1,9 +1,7 @@
-package com.clinic.service;
+package com.clinic.services;
 
-import com.clinic.model.Appointment;
-import com.clinic.model.Patient;
-import com.clinic.repository.AppointmentRepository;
-import com.clinic.repository.PatientRepository;
+import com.clinic.models.Appointment;
+import com.clinic.repositories.AppointmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

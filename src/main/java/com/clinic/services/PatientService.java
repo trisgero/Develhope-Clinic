@@ -1,10 +1,9 @@
-package com.clinic.service;
+package com.clinic.services;
 
 import org.springframework.stereotype.Service;
-import com.clinic.model.Patient;
-import com.clinic.repository.PatientRepository;
+import com.clinic.models.Patient;
+import com.clinic.repositories.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;

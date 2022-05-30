@@ -1,4 +1,4 @@
-package com.clinic.model;
+package com.clinic.models;
 
 import javax.persistence.*;
 import java.util.Date;

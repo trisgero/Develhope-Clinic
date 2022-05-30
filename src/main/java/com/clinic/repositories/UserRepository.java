@@ -1,7 +1,6 @@
-package com.clinic.repository;
+package com.clinic.repositories;
 
-import com.clinic.model.Patient;
-import com.clinic.model.User;
+import com.clinic.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

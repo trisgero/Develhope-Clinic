@@ -1,7 +1,7 @@
-package com.clinic.controller;
+package com.clinic.controllers;
 
-import com.clinic.model.User;
-import com.clinic.service.UserService;
+import com.clinic.models.User;
+import com.clinic.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

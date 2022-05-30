@@ -1,7 +1,7 @@
-package com.clinic.controller;
+package com.clinic.controllers;
 
-import com.clinic.model.Receipt;
-import com.clinic.service.ReceiptService;
+import com.clinic.models.Receipt;
+import com.clinic.services.ReceiptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +40,7 @@ public class ReceiptController {
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@RequestBody Receipt receipt, @PathVariable Integer id) {
         try {
-            Receipt existReceipit = receiptService.getReceipt(id);
+            Receipt existReceipt = receiptService.getReceipt(id);
             receipt.setId(receipt.getId());
             receiptService.saveReceipt(receipt);
             return new ResponseEntity<>(HttpStatus.OK);

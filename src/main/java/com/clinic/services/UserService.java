@@ -1,7 +1,7 @@
-package com.clinic.service;
+package com.clinic.services;
 
-import com.clinic.model.User;
-import com.clinic.repository.UserRepository;
+import com.clinic.models.User;
+import com.clinic.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

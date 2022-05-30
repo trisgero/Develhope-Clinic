@@ -12,8 +12,8 @@ public class Receipt {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long receipt_id;
     private String receipt_description;
-    private List<Patient> patient_id;
-    private List<Doctor> doctor_id;
+    private int patient_id;
+    private int doctor_id;
 
     public Receipt() {
     }
@@ -32,25 +32,18 @@ public class Receipt {
         this.receipt_id = receipt_id;
     }
 
-    @OneToMany
-    @JoinColumn(name = "patient_id")
-    public List<Patient> getPatient_id() {
-        return patient_id;
+    @ManyToOne(cascade = CascadeType.ALL)
+    public int getPatient_id() {
+        return new Patient().getPatient_id();
     }
 
-    public void setPatient_id(List<Patient> patient_id) {
+    public void setPatient_id(int patient_id) {
         this.patient_id = patient_id;
     }
 
-    @OneToMany
-    @JoinColumn(name = "doctor_id")
-    public List<Doctor> getDoctor_id() {
-        return doctor_id;
-    }
-
-
-    public void setDoctor_id(List<Doctor> doctor_id) {
-        this.doctor_id = doctor_id;
+    @ManyToOne(cascade = CascadeType.ALL)
+    public int getDoctor_id() {
+        return new Doctor().getDoctor_id();
     }
 
     public Long getId() {

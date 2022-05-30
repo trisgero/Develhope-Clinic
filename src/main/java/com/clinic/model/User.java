@@ -10,7 +10,7 @@ public class User{
     private Patient patient_id;
     private Doctor doctor_id;
 
-    public userKind user_kind;
+    private userKind user_kind;
     private String username;
     private String password;
 

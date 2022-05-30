@@ -16,6 +16,7 @@ public class Receipt {
     private Long receipt_id;
     private String receipt_description;
     private List<Patient> patient_id;
+    private List<Doctor> doctor_id;
 
     public Long getReceipt_id() {
         return receipt_id;

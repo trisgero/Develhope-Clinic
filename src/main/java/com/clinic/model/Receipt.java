@@ -3,9 +3,6 @@ package com.clinic.model;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * aggiungere patient_id e doctor_id
- */
 
 @Entity
 @Table(name = "receipt")

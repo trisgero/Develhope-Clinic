@@ -5,6 +5,8 @@ import javax.persistence.*;
 @Entity
 @Table(name="doctor")
 public class Doctor {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int doctor_id;
     private String doctor_name;
     private String doctor_surname;
@@ -23,8 +25,7 @@ public class Doctor {
         this.doctor_address = doctor_address;
         this.doctor_specialization = doctor_specialization;
     }
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     public int getDoctor_id() {
         return doctor_id;
     }

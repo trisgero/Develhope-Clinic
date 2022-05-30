@@ -31,11 +31,13 @@ public class Appointment {
     }
 
     @ManyToMany
+    @JoinColumn(name = "patient_id")
     public List<Patient> getPatient_id() {
         return patient_id;
     }
 
     @ManyToMany
+    @JoinColumn(name = "doctor_id")
     public List<Doctor> getDoctor_id() {
         return doctor_id;
     }

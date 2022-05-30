@@ -6,7 +6,8 @@ import java.util.Date;
 @Entity
 @Table(name = "patient")
 public class Patient {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int patient_id;
     private String patient_name;
     private String patient_surname;
@@ -25,8 +26,7 @@ public class Patient {
         this.patient_address = patient_address;
         this.patient_birthdate = patient_birthdate;
     }
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
 
     public int getPatient_id() {
         return patient_id;

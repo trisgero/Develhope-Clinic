@@ -23,7 +23,6 @@ public class Receipt {
         this.receipt_description = receipt_description;
     }
 
-
     public Long getReceipt_id() {
         return receipt_id;
     }
@@ -53,7 +52,6 @@ public class Receipt {
     public void setId(Long id) {
         this.receipt_id = id;
     }
-
 
     public String getReceipt_description() {
         return receipt_description;

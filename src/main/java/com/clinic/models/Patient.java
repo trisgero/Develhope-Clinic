@@ -1,4 +1,4 @@
-package com.clinic.model;
+package com.clinic.models;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -6,8 +6,9 @@ import java.util.Date;
 @Entity
 @Table(name = "patient")
 public class Patient {
-
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int patient_id;
     private String patient_name;
     private String patient_surname;
     private String patient_email;
@@ -17,8 +18,8 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(int id, String patient_name, String patient_surname, String patient_email, String patient_address, Date patient_birthdate) {
-        this.id = id;
+    public Patient(int patient_id, String patient_name, String patient_surname, String patient_email, String patient_address, Date patient_birthdate) {
+        this.patient_id = patient_id;
         this.patient_name = patient_name;
         this.patient_surname = patient_surname;
         this.patient_email = patient_email;
@@ -27,15 +28,12 @@ public class Patient {
     }
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    public int getId() {
-        return id;
+    public int getPatient_id() {
+        return patient_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPatient_id(int patient_id) {
+        this.patient_id = patient_id;
     }
 
     public String getPatient_name() {

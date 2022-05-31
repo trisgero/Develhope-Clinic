@@ -14,6 +14,7 @@ public class Patient {
     private String patient_email;
     private String patient_address;
     private Date patient_birthdate;
+    private String patient_fiscode;
 
     public Patient() {
     }
@@ -27,6 +28,14 @@ public class Patient {
         this.patient_birthdate = patient_birthdate;
     }
 
+
+    public String getPatient_fiscode() {
+        return patient_fiscode;
+    }
+
+    public void setPatient_fiscode(String patient_fiscode) {
+        this.patient_fiscode = patient_fiscode;
+    }
 
     public int getPatient_id() {
         return patient_id;

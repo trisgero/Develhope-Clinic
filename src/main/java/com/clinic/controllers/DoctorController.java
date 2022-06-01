@@ -22,9 +22,9 @@ public class DoctorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Doctor> get(@PathVariable Integer doctor_id) {
+    public ResponseEntity<Doctor> get(@PathVariable Integer id) {
         try {
-            Doctor doctor = doctorService.getDoctor(doctor_id);
+            Doctor doctor = doctorService.getDoctor(id);
             return new ResponseEntity<Doctor>(doctor, HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<Doctor>(HttpStatus.NOT_FOUND);

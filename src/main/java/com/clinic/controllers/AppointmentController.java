@@ -22,9 +22,9 @@ public class AppointmentController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Appointment> get(@PathVariable Integer appointment_id) {
+    public ResponseEntity<Appointment> get(@PathVariable Integer id) {
         try {
-            Appointment appointment = appointmentService.getAppointment(appointment_id);
+            Appointment appointment = appointmentService.getAppointment(id);
             return new ResponseEntity<Appointment>(appointment, HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<Appointment>(HttpStatus.NOT_FOUND);

@@ -23,9 +23,9 @@ public class PatientController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Patient> get(@PathVariable Integer patient_id) {
+    public ResponseEntity<Patient> get(@PathVariable Integer id) {
         try {
-            Patient patient = patientService.getPatient(patient_id);
+            Patient patient = patientService.getPatient(id);
             return new ResponseEntity<Patient>(patient, HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<Patient>(HttpStatus.NOT_FOUND);
@@ -38,21 +38,19 @@ public class PatientController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@RequestBody Patient patient, @PathVariable Integer patient_id) {
+    public ResponseEntity<?> update(@RequestBody Patient patient, @PathVariable Integer id) {
         try {
-            Patient existPatient = patientService.getPatient(patient_id);
-            patient.setPatient_id(patient_id);
+            Patient existPatient = patientService.getPatient(id);
+            patient.setPatient_id(id);
             patientService.savePatient(patient);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer patient_id) {
-
-        patientService.deletePatient(patient_id);
+    public void delete(@PathVariable Integer id) {
+        patientService.deletePatient(id);
     }
-
-
 }

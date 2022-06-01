@@ -4,13 +4,15 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class User{
+public class User {
 
     private int user_id;
     private Patient patient_id;
     private Doctor doctor_id;
 
-    private userKind user_kind;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "userKind")
+    private UserKind user_kind;
     private String username;
     private String password;
 
@@ -68,11 +70,14 @@ public class User{
     public void setPassword(String password) {
         this.password = password;
     }
-}
 
-enum userKind {
-    PATIENT,
-    DOCTORS,
-    SECRETARY;
+    public UserKind getUser_kind() {
+        return user_kind;
+    }
+
+    public void setUser_kind(UserKind user_kind) {
+        this.user_kind = user_kind;
+    }
+
 }
 

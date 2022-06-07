@@ -27,7 +27,6 @@ public class JoinPatientDoctor {
         this.doctor = doctor_id;
     }
 
-
     public int getJpd_id() {
         return jpd_id;
     }

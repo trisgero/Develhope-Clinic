@@ -16,7 +16,12 @@ public class Patient {
     private String patient_address;
     private Date patient_birthdate;
     private String patient_fiscode;
-
+    @OneToOne(mappedBy = "patient")
+    private User user;
+    @OneToMany(mappedBy = "patient")
+    private  List<Appointment> appointmentList;
+    @OneToMany(mappedBy = "patient")
+    private  List<Receipt> receiptList;
     @OneToMany(mappedBy = "patient")
     private List<JoinPatientDoctor> jpd;
 
@@ -30,14 +35,6 @@ public class Patient {
         this.patient_email = patient_email;
         this.patient_address = patient_address;
         this.patient_birthdate = patient_birthdate;
-        this.patient_fiscode = patient_fiscode;
-    }
-
-    public String getPatient_fiscode() {
-        return patient_fiscode;
-    }
-
-    public void setPatient_fiscode(String patient_fiscode) {
         this.patient_fiscode = patient_fiscode;
     }
 
@@ -89,4 +86,11 @@ public class Patient {
         this.patient_birthdate = patient_birthdate;
     }
 
+    public String getPatient_fiscode() {
+        return patient_fiscode;
+    }
+
+    public void setPatient_fiscode(String patient_fiscode) {
+        this.patient_fiscode = patient_fiscode;
+    }
 }

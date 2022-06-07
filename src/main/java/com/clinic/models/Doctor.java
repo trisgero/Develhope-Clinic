@@ -1,6 +1,7 @@
 package com.clinic.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="doctor")
@@ -13,6 +14,9 @@ public class Doctor {
     private String doctor_telephone;
     private String doctor_address;
     private String doctor_specialization;
+
+    @OneToMany(mappedBy = "doctor")
+    private List<JoinPatientDoctor> jpd;
 
     public Doctor() {
     }
@@ -73,4 +77,5 @@ public class Doctor {
     public void setDoctor_specialization(String doctor_specialization) {
         this.doctor_specialization = doctor_specialization;
     }
+
 }

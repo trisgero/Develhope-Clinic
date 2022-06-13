@@ -1,5 +1,10 @@
 package com.clinic.models;
 
+import com.clinic.repositories.AppointmentRepository;
+import com.clinic.services.AppointmentService;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,6 +19,15 @@ public class Doctor {
     private String doctor_telephone;
     private String doctor_address;
     private String doctor_specialization;
+
+    @OneToMany(mappedBy = "doctor_id")
+    @JsonIgnore
+    private List<Appointment> appointments;
+
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
+    }
+
     @OneToOne(mappedBy = "doctor")
     private User user;
     @OneToMany(mappedBy = "doctor")
@@ -26,13 +40,14 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(int doctor_id, String doctor_name, String doctor_surname, String doctor_telephone, String doctor_address, String doctor_specialization) {
+    public Doctor(int doctor_id, String doctor_name, String doctor_surname, String doctor_telephone, String doctor_address, String doctor_specialization, List<Appointment> appointments) {
         this.doctor_id = doctor_id;
         this.doctor_name = doctor_name;
         this.doctor_surname = doctor_surname;
         this.doctor_telephone = doctor_telephone;
         this.doctor_address = doctor_address;
         this.doctor_specialization = doctor_specialization;
+        this.appointments = appointments;
     }
 
     public int getDoctor_id() {
@@ -82,4 +97,5 @@ public class Doctor {
     public void setDoctor_specialization(String doctor_specialization) {
         this.doctor_specialization = doctor_specialization;
     }
+
 }

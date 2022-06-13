@@ -2,6 +2,7 @@ package com.clinic.models;
 
 import com.clinic.repositories.AppointmentRepository;
 import com.clinic.services.AppointmentService;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class Doctor {
     private String doctor_address;
     private String doctor_specialization;
     @OneToMany(mappedBy = "doctor_id")
+    @JsonIgnore
     private List<Appointment> appointments;
 
     public void setAppointments(List<Appointment> appointments) {

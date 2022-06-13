@@ -1,5 +1,7 @@
 package com.clinic.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -19,6 +21,7 @@ public class Patient {
     private String patient_fiscode;
 
     @OneToMany(mappedBy = "patient_id")
+    @JsonIgnore
     private List<Appointment> appointments;
 
     public List<Appointment> getAppointments() {

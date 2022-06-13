@@ -49,7 +49,6 @@ public class DoctorController {
     }
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer doctor_id) {
-
         doctorService.deleteDoctor(doctor_id);
     }
 

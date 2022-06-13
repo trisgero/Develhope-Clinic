@@ -41,7 +41,7 @@ public class ReceiptController {
     public ResponseEntity<?> update(@RequestBody Receipt receipt, @PathVariable Integer id) {
         try {
             Receipt existReceipt = receiptService.getReceipt(id);
-            receipt.setId(receipt.getId());
+            receipt.setReceipt_id(receipt.getReceipt_id());
             receiptService.saveReceipt(receipt);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException e) {

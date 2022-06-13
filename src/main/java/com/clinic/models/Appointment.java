@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "appointment")
+@Table(name = "appointments")
 
 public class Appointment {
 
@@ -30,10 +30,11 @@ public class Appointment {
     public Appointment() {
     }
 
+
     public Appointment(int appointment_id, Patient patient_id, Doctor doctor_id, Date appointment_date) {
         this.appointment_id = appointment_id;
         this.patient_id = patient_id;
-        this.doctor_id = doctor_id;
+        this.doctor = doctor;
         this.appointment_date = appointment_date;
     }
 
@@ -45,18 +46,18 @@ public class Appointment {
         return patient_id;
     }
 
-
     public Doctor getDoctor_id() {
         return doctor_id;
     }
 
-    public Date getAppointment_date() {
-        return appointment_date;
+    public void setPatient(Patient patient_id) {
+        this.patient_id = patient_id;
     }
 
-    public void setAppointment_id(int appointment_id) {
-        this.appointment_id = appointment_id;
+    public Doctor getDoctor() {
+        return doctor;
     }
+
 
     public void setPatient_id(Patient patient_id) {
         this.patient_id = patient_id;
@@ -66,8 +67,11 @@ public class Appointment {
         this.doctor_id = doctor_id;
     }
 
+    public Date getAppointment_date() {
+        return appointment_date;
+    }
+
     public void setAppointment_date(Date appointment_date) {
         this.appointment_date = appointment_date;
     }
-
 }

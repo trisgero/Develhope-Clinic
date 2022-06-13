@@ -5,10 +5,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int user_id;
-    private Patient patient_id;
-    private Doctor doctor_id;
+    @OneToOne
+    private Patient patient;
+    @OneToOne
+    private Doctor doctor;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "userKind")
@@ -16,10 +19,10 @@ public class User {
     private String username;
     private String password;
 
-    public User(int user_id, Patient patient_id, Doctor doctor_id, String username, String password) {
+    public User(int user_id, Patient patient, Doctor doctor, String username, String password) {
         this.user_id = user_id;
-        this.patient_id = patient_id;
-        this.doctor_id = doctor_id;
+        this.patient = patient;
+        this.doctor = doctor;
         this.username = username;
         this.password = password;
     }
@@ -27,8 +30,6 @@ public class User {
     public User() {
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getUser_id() {
         return user_id;
     }
@@ -37,22 +38,28 @@ public class User {
         this.user_id = user_id;
     }
 
-    @ManyToOne
-    public Patient getPatient_id() {
-        return patient_id;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setPatient_id(Patient patient_id) {
-        this.patient_id = patient_id;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
-    @ManyToOne
-    public Doctor getDoctor_id() {
-        return doctor_id;
+    public Doctor getDoctor() {
+        return doctor;
     }
 
-    public void setDoctor_id(Doctor doctor_id) {
-        this.doctor_id = doctor_id;
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    public UserKind getUser_kind() {
+        return user_kind;
+    }
+
+    public void setUser_kind(UserKind user_kind) {
+        this.user_kind = user_kind;
     }
 
     public String getUsername() {
@@ -70,14 +77,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public UserKind getUser_kind() {
-        return user_kind;
-    }
-
-    public void setUser_kind(UserKind user_kind) {
-        this.user_kind = user_kind;
-    }
-
 }
 

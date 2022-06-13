@@ -19,6 +19,7 @@ public class Doctor {
     private String doctor_telephone;
     private String doctor_address;
     private String doctor_specialization;
+
     @OneToMany(mappedBy = "doctor_id")
     @JsonIgnore
     private List<Appointment> appointments;
@@ -26,6 +27,15 @@ public class Doctor {
     public void setAppointments(List<Appointment> appointments) {
         this.appointments = appointments;
     }
+
+    @OneToOne(mappedBy = "doctor")
+    private User user;
+    @OneToMany(mappedBy = "doctor")
+    private List<Appointment> appointmentList;
+    @OneToMany(mappedBy = "doctor")
+    private List<Receipt> receiptList;
+    @OneToMany(mappedBy = "doctor")
+    private List<JoinPatientDoctor> jpd;
 
     public Doctor() {
     }

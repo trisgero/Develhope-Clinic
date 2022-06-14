@@ -16,24 +16,23 @@ public class Appointment {
     private int appointment_id;
 
     @ManyToOne
-    @JoinColumn(name = "patient_id")
+    @JoinColumn(name = "patient_ids")
     @JsonIgnore
-    private Patient patient_id;
+    private Patient patient;
 
     @ManyToOne
-    @JoinColumn(name = "doctor_id")
+    @JoinColumn(name = "doctor_ids")
     @JsonIgnore
-    private Doctor doctor_id;
+    private Doctor doctor;
 
     private Date appointment_date;
 
     public Appointment() {
     }
 
-
-    public Appointment(int appointment_id, Patient patient_id, Doctor doctor_id, Date appointment_date) {
+    public Appointment(int appointment_id, Patient patient, Doctor doctor, Date appointment_date) {
         this.appointment_id = appointment_id;
-        this.patient_id = patient_id;
+        this.patient = patient;
         this.doctor = doctor;
         this.appointment_date = appointment_date;
     }
@@ -42,29 +41,24 @@ public class Appointment {
         return appointment_id;
     }
 
-    public Patient getPatient_id() {
-        return patient_id;
+    public void setAppointment_id(int appointment_id) {
+        this.appointment_id = appointment_id;
     }
 
-    public Doctor getDoctor_id() {
-        return doctor_id;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setPatient(Patient patient_id) {
-        this.patient_id = patient_id;
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
     public Doctor getDoctor() {
         return doctor;
     }
 
-
-    public void setPatient_id(Patient patient_id) {
-        this.patient_id = patient_id;
-    }
-
-    public void setDoctor_id(Doctor doctor_id) {
-        this.doctor_id = doctor_id;
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 
     public Date getAppointment_date() {

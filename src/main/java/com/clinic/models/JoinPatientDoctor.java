@@ -11,21 +11,22 @@ public class JoinPatientDoctor {
     private int jpd_id;
 
     @ManyToOne
-    @JoinColumn(name = "patient_id")
+    @JoinColumn(name = "patient_idx")
     private Patient patient;
 
     @ManyToOne
-    @JoinColumn(name = "doctor_id")
+    @JoinColumn(name = "doctor_idx")
     private Doctor doctor;
 
     public JoinPatientDoctor() {
     }
 
-    public JoinPatientDoctor(int join_id, Patient patient_id, Doctor doctor_id) {
-        this.jpd_id = join_id;
-        this.patient = patient_id;
-        this.doctor = doctor_id;
+    public JoinPatientDoctor(int jpd_id, Patient patient, Doctor doctor) {
+        this.jpd_id = jpd_id;
+        this.patient = patient;
+        this.doctor = doctor;
     }
+
 
     public int getJpd_id() {
         return jpd_id;
@@ -50,4 +51,6 @@ public class JoinPatientDoctor {
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
+
+
 }

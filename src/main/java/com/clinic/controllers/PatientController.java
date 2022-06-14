@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/patient")
+@RequestMapping("/patients")
 public class PatientController {
 
     @Autowired

@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "doctor")
+@Table(name = "doctors")
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,13 +20,9 @@ public class Doctor {
     private String doctor_address;
     private String doctor_specialization;
 
-    @OneToMany(mappedBy = "doctor_id")
+    @OneToMany(mappedBy = "doctor")
     @JsonIgnore
     private List<Appointment> appointments;
-
-    public void setAppointments(List<Appointment> appointments) {
-        this.appointments = appointments;
-    }
 
     @OneToOne(mappedBy = "doctor")
     private User user;
@@ -40,7 +36,7 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(int doctor_id, String doctor_name, String doctor_surname, String doctor_telephone, String doctor_address, String doctor_specialization, List<Appointment> appointments) {
+    public Doctor(int doctor_id, String doctor_name, String doctor_surname, String doctor_telephone, String doctor_address, String doctor_specialization, List<Appointment> appointments, User user, List<Appointment> appointmentList, List<Receipt> receiptList, List<JoinPatientDoctor> jpd) {
         this.doctor_id = doctor_id;
         this.doctor_name = doctor_name;
         this.doctor_surname = doctor_surname;
@@ -48,6 +44,10 @@ public class Doctor {
         this.doctor_address = doctor_address;
         this.doctor_specialization = doctor_specialization;
         this.appointments = appointments;
+        this.user = user;
+        this.appointmentList = appointmentList;
+        this.receiptList = receiptList;
+        this.jpd = jpd;
     }
 
     public int getDoctor_id() {
@@ -98,4 +98,43 @@ public class Doctor {
         this.doctor_specialization = doctor_specialization;
     }
 
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<Appointment> getAppointmentList() {
+        return appointmentList;
+    }
+
+    public void setAppointmentList(List<Appointment> appointmentList) {
+        this.appointmentList = appointmentList;
+    }
+
+    public List<Receipt> getReceiptList() {
+        return receiptList;
+    }
+
+    public void setReceiptList(List<Receipt> receiptList) {
+        this.receiptList = receiptList;
+    }
+
+    public List<JoinPatientDoctor> getJpd() {
+        return jpd;
+    }
+
+    public void setJpd(List<JoinPatientDoctor> jpd) {
+        this.jpd = jpd;
+    }
 }

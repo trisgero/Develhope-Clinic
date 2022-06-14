@@ -5,7 +5,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "receipt")
+@Table(name = "receipts")
 public class Receipt {
 
     @Id

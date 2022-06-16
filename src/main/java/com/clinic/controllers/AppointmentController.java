@@ -40,7 +40,7 @@ public class AppointmentController {
     public ResponseEntity<?> update(@RequestBody Appointment appointment, @PathVariable Integer appointment_id) {
         try {
             Appointment existAppointment = appointmentService.getAppointment(appointment_id);
-            appointment.setAppointment_id(appointment_id);
+            appointment.setAppointmentId(appointment_id);
             appointmentService.saveAppointment(appointment);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException e) {
@@ -52,5 +52,4 @@ public class AppointmentController {
 
         appointmentService.deleteAppointment(appointment_id);
     }
-
 }

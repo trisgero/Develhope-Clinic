@@ -41,7 +41,7 @@ public class PatientController {
     public ResponseEntity<?> update(@RequestBody Patient patient, @PathVariable Integer id) {
         try {
             Patient existPatient = patientService.getPatient(id);
-            patient.setPatient_id(id);
+            patient.setPatientId(id);
             patientService.savePatient(patient);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException e) {

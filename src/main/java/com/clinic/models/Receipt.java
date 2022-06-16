@@ -1,7 +1,6 @@
 package com.clinic.models;
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity
@@ -10,8 +9,8 @@ public class Receipt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int receipt_id;
-    private String receipt_description;
+    private int receiptId;
+    private String receiptDescription;
     @ManyToOne
     private Patient patient;
     @ManyToOne
@@ -21,26 +20,26 @@ public class Receipt {
     }
 
     public Receipt(int receipt_id, String receipt_description, Patient patient, Doctor doctor) {
-        this.receipt_id = receipt_id;
-        this.receipt_description = receipt_description;
+        this.receiptId = receipt_id;
+        this.receiptDescription = receipt_description;
         this.patient = patient;
         this.doctor = doctor;
     }
 
     public int getReceipt_id() {
-        return receipt_id;
+        return receiptId;
     }
 
     public void setReceipt_id(int receipt_id) {
-        this.receipt_id = receipt_id;
+        this.receiptId = receipt_id;
     }
 
     public String getReceipt_description() {
-        return receipt_description;
+        return receiptDescription;
     }
 
     public void setReceipt_description(String receipt_description) {
-        this.receipt_description = receipt_description;
+        this.receiptDescription = receipt_description;
     }
 
     public Patient getPatient() {

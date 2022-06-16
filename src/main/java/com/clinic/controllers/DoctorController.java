@@ -10,10 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.print.Doc;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/doctors")
@@ -55,7 +53,7 @@ public class DoctorController {
     public ResponseEntity<?> update(@RequestBody Doctor doctor, @PathVariable Integer doctor_id) {
         try {
             Doctor existDoctor = doctorService.getDoctor(doctor_id);
-            doctor.setDoctor_id(doctor_id);
+            doctor.setDoctorId(doctor_id);
             doctorService.saveDoctor(doctor);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException e) {

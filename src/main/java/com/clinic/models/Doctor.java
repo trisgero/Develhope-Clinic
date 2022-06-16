@@ -1,9 +1,6 @@
 package com.clinic.models;
 
-import com.clinic.repositories.AppointmentRepository;
-import com.clinic.services.AppointmentService;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,13 +10,13 @@ import java.util.List;
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int doctor_id;
+    private int doctorId;
 
-    private String doctor_name;
-    private String doctor_surname;
-    private String doctor_telephone;
-    private String doctor_address;
-    private String doctor_specialization;
+    private String doctorName;
+    private String doctorSurname;
+    private String doctorTelephone;
+    private String doctorAddress;
+    private String doctorSpecialization;
 
     @OneToMany(mappedBy = "doctor")
     @JsonIgnore
@@ -32,13 +29,13 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(int doctor_id, String doctor_name, String doctor_surname, String doctor_telephone, String doctor_address, String doctor_specialization, List<Appointment> appointments) {
-        this.doctor_id = doctor_id;
-        this.doctor_name = doctor_name;
-        this.doctor_surname = doctor_surname;
-        this.doctor_telephone = doctor_telephone;
-        this.doctor_address = doctor_address;
-        this.doctor_specialization = doctor_specialization;
+    public Doctor(int doctorId, String doctorName, String doctorSurname, String doctorTelephone, String doctorAddress, String doctorSpecialization, List<Appointment> appointments) {
+        this.doctorId = doctorId;
+        this.doctorName = doctorName;
+        this.doctorSurname = doctorSurname;
+        this.doctorTelephone = doctorTelephone;
+        this.doctorAddress = doctorAddress;
+        this.doctorSpecialization = doctorSpecialization;
         this.appointments = appointments;
     }
 
@@ -46,52 +43,52 @@ public class Doctor {
         return appointments;
     }
 
-    public int getDoctor_id() {
-        return doctor_id;
+    public int getdoctorId() {
+        return doctorId;
     }
 
-    public void setDoctor_id(int doctor_id) {
-        this.doctor_id = doctor_id;
+    public void setDoctorId(int doctor_id) {
+        this.doctorId = doctor_id;
     }
 
-    public String getDoctor_name() {
-        return doctor_name;
+    public String getDoctorName() {
+        return doctorName;
     }
 
-    public void setDoctor_name(String doctor_name) {
-        this.doctor_name = doctor_name;
+    public void setDoctorName(String doctor_name) {
+        this.doctorName = doctor_name;
     }
 
-    public String getDoctor_surname() {
-        return doctor_surname;
+    public String getDoctorSurname() {
+        return doctorSurname;
     }
 
-    public void setDoctor_surname(String doctor_surname) {
-        this.doctor_surname = doctor_surname;
+    public void setDoctorSurname(String doctor_surname) {
+        this.doctorSurname = doctor_surname;
     }
 
-    public String getDoctor_telephone() {
-        return doctor_telephone;
+    public String getDoctorTelephone() {
+        return doctorTelephone;
     }
 
-    public void setDoctor_telephone(String doctor_telephone) {
-        this.doctor_telephone = doctor_telephone;
+    public void setDoctorTelephone(String doctor_telephone) {
+        this.doctorTelephone = doctor_telephone;
     }
 
-    public String getDoctor_address() {
-        return doctor_address;
+    public String getDoctorAddress() {
+        return doctorAddress;
     }
 
-    public void setDoctor_address(String doctor_address) {
-        this.doctor_address = doctor_address;
+    public void setdoctorAddress(String doctor_address) {
+        this.doctorAddress = doctor_address;
     }
 
-    public String getDoctor_specialization() {
-        return doctor_specialization;
+    public String getDoctorSpecialization() {
+        return doctorSpecialization;
     }
 
-    public void setDoctor_specialization(String doctor_specialization) {
-        this.doctor_specialization = doctor_specialization;
+    public void setDoctorSpecialization(String doctor_specialization) {
+        this.doctorSpecialization = doctor_specialization;
     }
 
 }

@@ -3,7 +3,7 @@ package com.clinic.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -17,7 +17,7 @@ public class Patient {
     private String patientSurname;
     private String patientEmail;
     private String patientAddress;
-    private Date patientBirthdate;
+    private LocalDate patientBirthdate;
     private String patientFiscode;
 
     @OneToMany(mappedBy = "patient")
@@ -35,7 +35,7 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(int patientId, String patientName, String patientSurname, String patientEmail, String patientAddress, Date patientBirthdate, String patientFiscode, List<Appointment> appointments) {
+    public Patient(int patientId, String patientName, String patientSurname, String patientEmail, String patientAddress, LocalDate patientBirthdate, String patientFiscode, List<Appointment> appointments) {
         this.patientId = patientId;
         this.patientName = patientName;
         this.patientSurname = patientSurname;
@@ -94,11 +94,11 @@ public class Patient {
         this.patientAddress = patientAddress;
     }
 
-    public Date getPatientBirthdate() {
+    public LocalDate getPatientBirthdate() {
         return patientBirthdate;
     }
 
-    public void setPatientBirthdate(Date patientBirthdate) {
+    public void setPatientBirthdate(LocalDate patientBirthdate) {
         this.patientBirthdate = patientBirthdate;
     }
 

@@ -52,5 +52,4 @@ public class AppointmentController {
 
         appointmentService.deleteAppointment(appointment_id);
     }
-
 }

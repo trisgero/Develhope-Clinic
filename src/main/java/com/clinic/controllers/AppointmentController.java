@@ -2,11 +2,14 @@ package com.clinic.controllers;
 
 import com.clinic.models.Appointment;
 import com.clinic.services.AppointmentService;
+import com.clinic.services.DoctorService;
+import com.clinic.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -15,6 +18,13 @@ import java.util.NoSuchElementException;
 public class AppointmentController {
     @Autowired
     AppointmentService appointmentService;
+
+    @Autowired
+    DoctorService doctorService;
+
+    @Autowired
+    PatientService patientService;
+
 
     @GetMapping("")
     public List<Appointment> listAppointment(){
@@ -36,6 +46,21 @@ public class AppointmentController {
         appointmentService.saveAppointment(appointment);
     }
 
+    @PostMapping("/add")
+    public void addAppointment(
+            @RequestParam Date appointmentDate,
+            @RequestParam int doctorId,
+            @RequestParam int patientId){
+        Appointment newAppointment = new Appointment();
+        newAppointment.setAppointmentDate(appointmentDate);
+        newAppointment.setPatientId(patientService.getPatient(patientId));
+        newAppointment.setDoctorId(doctorService.getDoctor(doctorId));
+        appointmentService.saveAppointment(newAppointment);
+    }
+
+
+
+
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@RequestBody Appointment appointment, @PathVariable Integer appointment_id) {
         try {
@@ -47,6 +72,7 @@ public class AppointmentController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer appointment_id) {
 

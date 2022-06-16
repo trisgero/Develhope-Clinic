@@ -13,7 +13,13 @@ CREATE TABLE `doctor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 select * from doctor;
-INSERT INTO `doctor` VALUES (68,'Diana ','Sandi','Rotonda Barone 33','398 232 0803','Allergist'),(213,'Flavio ','Fagotto','Borgo Miriam 9','357 927 468','Dermatologist'),(234,'Loredana','Loredana ','Rotonda Umberto 4','316 652 2786','Cardiologist'),(257,'Lauretta','Littizzetto','Piazza Giulietta 839','341 893 7569','Physiotherapist'),(342,'Bianca','Niscoromni','Via Fabbri 219','394 296 2843','Osteopath'),(345,'Annamaria','Niscoromni','Incrocio Ferretti 764','358 567 718','Dentist');
+INSERT INTO `doctor` VALUES
+(68,'Diana ','Sandi','Rotonda Barone 33','398 232 0803','Allergist'),
+(213,'Flavio ','Fagotto','Borgo Miriam 9','357 927 468','Dermatologist'),
+(234,'Loredana','Loredana ','Rotonda Umberto 4','316 652 2786','Cardiologist'),
+(257,'Lauretta','Littizzetto','Piazza Giulietta 839','341 893 7569','Physiotherapist'),
+(342,'Bianca','Niscoromni','Via Fabbri 219','394 296 2843','Osteopath'),
+(345,'Annamaria','Niscoromni','Incrocio Ferretti 764','358 567 718','Dentist');
 
 
 CREATE TABLE `patient` (
@@ -60,7 +66,22 @@ CREATE TABLE `receipt` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 select * from receipt;
-INSERT INTO `receipt` VALUES (1,'Tachipirina per la febbre',1,68),(2,'Oki per mal di testa',9,213),(3,'Lioresal rilassante muscolare',4,234),(4,'Eutirox per la tiroide',2,345),(5,'Aulin mal di testa',5,68),(6,'Spidifen anti infiammotorio',1,213),(7,'Oky per dolori',3,68),(8,'Artrosilene per mal di schiena',6,213),(9,'Levotuss sciroppo per tosse',7,234),(10,'Baclofene rilassante muscolare',8,257),(11,'Cortisone per puntura',10,68),(12,'Tantum verde per mal di gola',12,213),(13,'Moment per il mal di testa',15,345),(14,'Borocillina per mal di gola',14,342),(15,'Enterolactis per ravvivare flora intestiale',11,68);
+INSERT INTO `receipt` VALUES
+(1,'Tachipirina per la febbre',1,68),
+(2,'Oki per mal di testa',9,213),
+(3,'Lioresal rilassante muscolare',4,234),
+(4,'Eutirox per la tiroide',2,345),
+(5,'Aulin mal di testa',5,68),
+(6,'Spidifen anti infiammotorio',1,213),
+(7,'Oky per dolori',3,68),
+(8,'Artrosilene per mal di schiena',6,213),
+(9,'Levotuss sciroppo per tosse',7,234),
+(10,'Baclofene rilassante muscolare',8,257),
+(11,'Cortisone per puntura',10,68),
+(12,'Tantum verde per mal di gola',12,213),
+(13,'Moment per il mal di testa',15,345),
+(14,'Borocillina per mal di gola',14,342),
+(15,'Enterolactis per ravvivare flora intestiale',11,68);
 
 
 create table appointment(
@@ -73,4 +94,11 @@ foreign key(doctor_id) references doctor(doctor_id)
 );
 
 select * from appointment;
-INSERT INTO `appointment` VALUES (1,'2022-11-11',2,213),(2,'2022-06-11',2,213),(3,'2023-06-11',2,213),(4,'2022-06-11',9,68),(5,'2022-10-11',4,234),(6,'2023-12-12',5,345),(7,'2022-03-11',3,213);
+INSERT INTO `appointment` VALUES
+(1,'2022-11-11',2,213),
+(2,'2022-06-11',2,213),
+(3,'2023-06-11',2,213),
+(4,'2022-06-11',9,68),
+(5,'2022-10-11',4,234),
+(6,'2023-12-12',5,345),
+(7,'2022-03-11',3,213);

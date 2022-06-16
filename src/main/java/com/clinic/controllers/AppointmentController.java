@@ -27,7 +27,7 @@ public class AppointmentController {
 
 
     @GetMapping("")
-    public List<Appointment> listAppointment(){
+    public List<Appointment> listAppointment() {
         return appointmentService.listAllAppointment();
     }
 
@@ -50,15 +50,13 @@ public class AppointmentController {
     public void addAppointment(
             @RequestParam LocalDate appointmentDate,
             @RequestParam int doctorId,
-            @RequestParam int patientId){
+            @RequestParam int patientId) {
         Appointment newAppointment = new Appointment();
         newAppointment.setAppointmentDate(appointmentDate);
         newAppointment.setPatientId(patientService.getPatient(patientId));
         newAppointment.setDoctorId(doctorService.getDoctor(doctorId));
         appointmentService.saveAppointment(newAppointment);
     }
-
-
 
 
     @PutMapping("/{id}")

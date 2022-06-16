@@ -1,20 +1,32 @@
 package com.clinic.controllers;
 
+import com.clinic.models.Appointment;
 import com.clinic.models.Doctor;
+import com.clinic.repositories.DoctorRepository;
+import com.clinic.services.AppointmentService;
 import com.clinic.services.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.Doc;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/doctors")
+@RequestMapping("/doctor")
 public class DoctorController {
+
     @Autowired
     DoctorService doctorService;
+
+    @Autowired
+    DoctorRepository doctorRepository;
+
+    @Autowired
+    AppointmentService appointmentService;
 
     @GetMapping("")
     public List<Doctor> listDoctor(){
@@ -29,6 +41,12 @@ public class DoctorController {
         } catch (NoSuchElementException e) {
             return new ResponseEntity<Doctor>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/{id}/appointment")
+    public List<Appointment> getDoctorAppointmentByDoctorId(@PathVariable Integer id){
+        List<Appointment> appointments = doctorService.getDoctor(id).getAppointments();
+        return appointments;
     }
 
     @PostMapping("/")
@@ -47,6 +65,7 @@ public class DoctorController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer doctor_id) {
         doctorService.deleteDoctor(doctor_id);

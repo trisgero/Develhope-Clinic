@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/receipts")
+@RequestMapping("/receipt")
 public class ReceiptController {
 
     @Autowired

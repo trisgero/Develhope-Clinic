@@ -9,34 +9,30 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "doctors")
+@Table(name = "doctor")
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int doctor_id;
+
     private String doctor_name;
     private String doctor_surname;
     private String doctor_telephone;
     private String doctor_address;
     private String doctor_specialization;
 
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(mappedBy = "doctor_id")
     @JsonIgnore
     private List<Appointment> appointments;
 
-    @OneToOne(mappedBy = "doctor")
-    private User user;
-    @OneToMany(mappedBy = "doctor")
-    private List<Appointment> appointmentList;
-    @OneToMany(mappedBy = "doctor")
-    private List<Receipt> receiptList;
-    @OneToMany(mappedBy = "doctor")
-    private List<JoinPatientDoctor> jpd;
+    public void setAppointments(List<Appointment> appointments) {
+        this.appointments = appointments;
+    }
 
     public Doctor() {
     }
 
-    public Doctor(int doctor_id, String doctor_name, String doctor_surname, String doctor_telephone, String doctor_address, String doctor_specialization, List<Appointment> appointments, User user, List<Appointment> appointmentList, List<Receipt> receiptList, List<JoinPatientDoctor> jpd) {
+    public Doctor(int doctor_id, String doctor_name, String doctor_surname, String doctor_telephone, String doctor_address, String doctor_specialization, List<Appointment> appointments) {
         this.doctor_id = doctor_id;
         this.doctor_name = doctor_name;
         this.doctor_surname = doctor_surname;
@@ -44,10 +40,10 @@ public class Doctor {
         this.doctor_address = doctor_address;
         this.doctor_specialization = doctor_specialization;
         this.appointments = appointments;
-        this.user = user;
-        this.appointmentList = appointmentList;
-        this.receiptList = receiptList;
-        this.jpd = jpd;
+    }
+
+    public List<Appointment> getAppointments() {
+        return appointments;
     }
 
     public int getDoctor_id() {
@@ -98,43 +94,4 @@ public class Doctor {
         this.doctor_specialization = doctor_specialization;
     }
 
-    public List<Appointment> getAppointments() {
-        return appointments;
-    }
-
-    public void setAppointments(List<Appointment> appointments) {
-        this.appointments = appointments;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public List<Appointment> getAppointmentList() {
-        return appointmentList;
-    }
-
-    public void setAppointmentList(List<Appointment> appointmentList) {
-        this.appointmentList = appointmentList;
-    }
-
-    public List<Receipt> getReceiptList() {
-        return receiptList;
-    }
-
-    public void setReceiptList(List<Receipt> receiptList) {
-        this.receiptList = receiptList;
-    }
-
-    public List<JoinPatientDoctor> getJpd() {
-        return jpd;
-    }
-
-    public void setJpd(List<JoinPatientDoctor> jpd) {
-        this.jpd = jpd;
-    }
 }

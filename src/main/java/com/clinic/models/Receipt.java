@@ -5,7 +5,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "receipts")
+@Table(name = "receipt")
 public class Receipt {
 
     @Id
@@ -58,4 +58,5 @@ public class Receipt {
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
+
 }

@@ -16,14 +16,11 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/doctor")
+@RequestMapping("/doctors")
 public class DoctorController {
 
     @Autowired
     DoctorService doctorService;
-
-    @Autowired
-    DoctorRepository doctorRepository;
 
     @Autowired
     AppointmentService appointmentService;
@@ -43,13 +40,13 @@ public class DoctorController {
         }
     }
 
-    @GetMapping("/{id}/appointment")
+    @GetMapping("/{id}/appointments")
     public List<Appointment> getDoctorAppointmentByDoctorId(@PathVariable Integer id){
         List<Appointment> appointments = doctorService.getDoctor(id).getAppointments();
         return appointments;
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public void add(@RequestBody Doctor doctor) {
         doctorService.saveDoctor(doctor);
     }

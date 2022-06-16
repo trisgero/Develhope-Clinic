@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/receipt")
+@RequestMapping("/receipts")
 public class ReceiptController {
 
     @Autowired
@@ -32,7 +32,7 @@ public class ReceiptController {
         }
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public void add(@RequestBody Receipt receipt) {
         receiptService.saveReceipt(receipt);
     }

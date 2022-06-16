@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/patient")
+@RequestMapping("/patients")
 public class PatientController {
 
     @Autowired
@@ -32,7 +32,7 @@ public class PatientController {
         }
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public void add(@RequestBody Patient patient) {
         patientService.savePatient(patient);
     }

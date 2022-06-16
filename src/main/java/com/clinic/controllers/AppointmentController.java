@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/appointment")
+@RequestMapping("/appointments")
 public class AppointmentController {
     @Autowired
     AppointmentService appointmentService;
@@ -31,7 +31,7 @@ public class AppointmentController {
         }
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public void add(@RequestBody Appointment appointment) {
         appointmentService.saveAppointment(appointment);
     }

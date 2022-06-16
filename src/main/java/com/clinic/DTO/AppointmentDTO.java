@@ -11,6 +11,15 @@ public class AppointmentDTO {
     private String doctorName;
     private Date date;
 
+    public AppointmentDTO(){}
+
+    public AppointmentDTO(int appointmentId, int patientId, String patientNameSurname, String doctorName, Date date) {
+        this.appointmentId = appointmentId;
+        this.patientId = patientId;
+        this.patientNameSurname = patientNameSurname;
+        this.doctorName = doctorName;
+        this.date = date;
+    }
 
     public int getAppointmentId() {
         return appointmentId;

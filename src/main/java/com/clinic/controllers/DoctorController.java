@@ -1,5 +1,6 @@
 package com.clinic.controllers;
 
+import com.clinic.DTO.AppointmentDTO;
 import com.clinic.models.Appointment;
 import com.clinic.models.Doctor;
 import com.clinic.repositories.DoctorRepository;
@@ -10,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -39,9 +41,19 @@ public class DoctorController {
     }
 
     @GetMapping("/{id}/appointments")
-    public List<Appointment> getDoctorAppointmentByDoctorId(@PathVariable Integer id){
+    public List<AppointmentDTO> getDoctorAppointmentByDoctorId(@PathVariable Integer id){
+        List<AppointmentDTO> appointmentsDTO = new ArrayList<>();
         List<Appointment> appointments = doctorService.getDoctor(id).getAppointments();
-        return appointments;
+        for (Appointment a : appointments){
+            appointmentsDTO.add(
+                    new AppointmentDTO(
+                            a.getAppointmentId(),
+                            a.getPatient().getPatientId(),
+                            a.getPatient().getPatientName()+ " " +a.getPatient().getPatientSurname(),
+                            a.getDoctor().getDoctorName()+ " " + a.getDoctor().getDoctorSurname(),
+                            a.getAppointmentDate()));
+        }
+        return appointmentsDTO;
     }
 
     @PostMapping("")

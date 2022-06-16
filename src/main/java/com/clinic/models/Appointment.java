@@ -29,6 +29,7 @@ public class Appointment {
     public Appointment() {
     }
 
+
     public Appointment(int appointmentId, Patient patientId, Doctor doctorId, Date appointmentDate) {
         this.appointmentId = appointmentId;
         this.patient = patientId;
@@ -41,7 +42,7 @@ public class Appointment {
     }
 
     public Patient getPatientId() {
-        return patient;
+
     }
 
 
@@ -53,9 +54,10 @@ public class Appointment {
         return appointmentDate;
     }
 
-    public void setAppointmentId(int appointment_id) {
-        this.appointmentId = appointment_id;
+    public void setAppointmentId(int appointmentId) {
+        this.appointmentId = appointmentId;
     }
+
 
     public void setPatientId(Patient id) {
         this.patient = id;
@@ -65,8 +67,8 @@ public class Appointment {
         this.doctor = id;
     }
 
-    public void setAppointmentDate(Date appointment_date) {
-        this.appointmentDate = appointment_date;
+    public void setAppointmentDate(Date appointmentDate) {
+        this.appointmentDate = appointmentDate;
     }
 
 }

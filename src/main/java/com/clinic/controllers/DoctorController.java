@@ -21,9 +21,6 @@ public class DoctorController {
     DoctorService doctorService;
 
     @Autowired
-    DoctorRepository doctorRepository;
-
-    @Autowired
     AppointmentService appointmentService;
 
     @GetMapping("")
@@ -41,7 +38,7 @@ public class DoctorController {
         }
     }
 
-    @GetMapping("/{id}/appointment")
+    @GetMapping("/{id}/appointments")
     public List<Appointment> getDoctorAppointmentByDoctorId(@PathVariable Integer id){
         List<Appointment> appointments = doctorService.getDoctor(id).getAppointments();
         return appointments;

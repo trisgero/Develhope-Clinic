@@ -41,12 +41,11 @@ public class Appointment {
         return appointmentId;
     }
 
-    public Patient getPatientId() {
-
+    public Patient getPatient() {
+        return patient;
     }
 
-
-    public Doctor getDoctorId() {
+    public Doctor getDoctor() {
         return doctor;
     }
 

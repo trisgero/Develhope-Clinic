@@ -3,7 +3,7 @@ create schema Clinic;
 use Clinic;
 
 CREATE TABLE `doctors` (
-  `doctor_id` int NOT NULL,
+  `doctor_id` int NOT NULL AUTO_INCREMENT,
   `doctor_name` varchar(50) DEFAULT NULL,
   `doctor_surname` varchar(50) DEFAULT NULL,
   `doctor_address` varchar(150) DEFAULT NULL,
@@ -23,7 +23,7 @@ INSERT INTO `doctors` VALUES
 
 
 CREATE TABLE `patients` (
-  `patient_id` int NOT NULL,
+  `patient_id` int NOT NULL AUTO_INCREMENT,
   `patient_name` varchar(50) DEFAULT NULL,
   `patient_surname` varchar(50) DEFAULT NULL,
   `patient_email` varchar(320) DEFAULT NULL,
@@ -54,7 +54,7 @@ INSERT INTO `patients` VALUES
 
 
 CREATE TABLE `receipts` (
-  `receipt_id` int NOT NULL DEFAULT '0',
+  `receipt_id` int NOT NULL DEFAULT '0' AUTO_INCREMENT,
   `receipt_description` varchar(400) DEFAULT NULL,
   `patient_ID` int NOT NULL,
   `doctor_ID` int NOT NULL,
@@ -85,7 +85,7 @@ INSERT INTO `receipts` VALUES
 
 
 create table appointments(
-appointment_id int primary key not null auto_increment,
+appointment_id int primary key not null AUTO_INCREMENT,
 appointment_date date,
 patient_id int not null,
 doctor_id int not null,

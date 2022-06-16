@@ -21,7 +21,7 @@ public class Doctor {
     private String doctor_address;
     private String doctor_specialization;
 
-    @OneToMany(mappedBy = "doctor_id")
+    @OneToMany(mappedBy = "doctor")
     @JsonIgnore
     private List<Appointment> appointments;
 

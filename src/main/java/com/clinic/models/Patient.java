@@ -20,7 +20,7 @@ public class Patient {
     private Date patient_birthdate;
     private String patient_fiscode;
 
-    @OneToMany(mappedBy = "patient_id")
+    @OneToMany(mappedBy = "patient")
     @JsonIgnore
     private List<Appointment> appointments;
 

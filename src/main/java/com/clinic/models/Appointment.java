@@ -3,7 +3,8 @@ package com.clinic.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Entity
 @Table(name = "appointments")
@@ -24,13 +25,13 @@ public class Appointment {
     @JsonIgnore
     private Doctor doctor;
 
-    private Date appointmentDate;
+    private LocalDate appointmentDate;
 
     public Appointment() {
     }
 
 
-    public Appointment(int appointmentId, Patient patientId, Doctor doctorId, Date appointmentDate) {
+    public Appointment(int appointmentId, Patient patientId, Doctor doctorId, LocalDate appointmentDate) {
         this.appointmentId = appointmentId;
         this.patient = patientId;
         this.doctor = doctorId;
@@ -49,7 +50,7 @@ public class Appointment {
         return doctor;
     }
 
-    public Date getAppointmentDate() {
+    public LocalDate getAppointmentDate() {
         return appointmentDate;
     }
 
@@ -66,7 +67,7 @@ public class Appointment {
         this.doctor = id;
     }
 
-    public void setAppointmentDate(Date appointmentDate) {
+    public void setAppointmentDate(LocalDate appointmentDate) {
         this.appointmentDate = appointmentDate;
     }
 

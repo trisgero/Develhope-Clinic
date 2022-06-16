@@ -1,7 +1,8 @@
 package com.clinic.DTO;
 
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public class AppointmentDTO {
 
@@ -9,11 +10,11 @@ public class AppointmentDTO {
     private int patientId;
     private String patientNameSurname;
     private String doctorName;
-    private Date date;
+    private LocalDate date;
 
     public AppointmentDTO(){}
 
-    public AppointmentDTO(int appointmentId, int patientId, String patientNameSurname, String doctorName, Date date) {
+    public AppointmentDTO(int appointmentId, int patientId, String patientNameSurname, String doctorName, LocalDate date) {
         this.appointmentId = appointmentId;
         this.patientId = patientId;
         this.patientNameSurname = patientNameSurname;
@@ -53,11 +54,11 @@ public class AppointmentDTO {
         this.doctorName = doctorName;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 }

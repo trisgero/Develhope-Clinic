@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -48,7 +48,7 @@ public class AppointmentController {
 
     @PostMapping("/add")
     public void addAppointment(
-            @RequestParam Date appointmentDate,
+            @RequestParam LocalDate appointmentDate,
             @RequestParam int doctorId,
             @RequestParam int patientId){
         Appointment newAppointment = new Appointment();

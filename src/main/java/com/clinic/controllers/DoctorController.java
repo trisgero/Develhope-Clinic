@@ -3,7 +3,6 @@ package com.clinic.controllers;
 import com.clinic.DTO.AppointmentDTO;
 import com.clinic.models.Appointment;
 import com.clinic.models.Doctor;
-import com.clinic.repositories.DoctorRepository;
 import com.clinic.services.AppointmentService;
 import com.clinic.services.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +38,6 @@ public class DoctorController {
             return new ResponseEntity<Doctor>(HttpStatus.NOT_FOUND);
         }
     }
-
     @GetMapping("/{id}/appointments")
     public List<AppointmentDTO> getDoctorAppointmentByDoctorId(@PathVariable Integer id){
         List<AppointmentDTO> appointmentsDTO = new ArrayList<>();
@@ -50,11 +48,12 @@ public class DoctorController {
                             a.getAppointmentId(),
                             a.getPatient().getPatientId(),
                             a.getPatient().getPatientName()+ " " +a.getPatient().getPatientSurname(),
-                            a.getDoctor().getDoctorName()+ " " + a.getDoctor().getDoctorSurname(),
+                            a.getDoctor().getDoctorName() + a.getDoctor().getDoctorSurname(),
                             a.getAppointmentDate()));
         }
         return appointmentsDTO;
     }
+
 
     @PostMapping("")
     public void add(@RequestBody Doctor doctor) {

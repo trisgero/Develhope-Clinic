@@ -1,5 +1,7 @@
 package com.clinic.controllers;
 
+import com.clinic.DTO.AppointmentDTO;
+import com.clinic.models.Appointment;
 import com.clinic.models.Patient;
 import com.clinic.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -18,7 +21,7 @@ public class PatientController {
     PatientService patientService;
 
     @GetMapping("")
-    public List<Patient> listPatient(){
+    public List<Patient> listPatient() {
         return patientService.listAllPatient();
     }
 
@@ -30,6 +33,23 @@ public class PatientController {
         } catch (NoSuchElementException e) {
             return new ResponseEntity<Patient>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/{id}/appointments")
+    public List<AppointmentDTO> getPatientAppointmentsByPatientId(@PathVariable Integer id) {
+        List<AppointmentDTO> appointmentsDTO = new ArrayList<>();
+        List<Appointment> appointments = patientService.getPatient(id).getAppointments();
+        for (Appointment a : appointments) {
+            appointmentsDTO.add(
+                    new AppointmentDTO(
+                            a.getAppointmentId(),
+                            a.getPatient().getPatientId(),
+                            a.getPatient().getPatientName() + " " + a.getPatient().getPatientSurname(),
+                            a.getDoctor().getDoctorName() + a.getDoctor().getDoctorSurname(),
+                            a.getAppointmentDate()));
+        }
+        return appointmentsDTO;
+
     }
 
     @PostMapping("")

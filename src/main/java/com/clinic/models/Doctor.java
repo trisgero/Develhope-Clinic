@@ -43,7 +43,7 @@ public class Doctor {
         return appointments;
     }
 
-    public int getdoctorId() {
+    public int getDoctorId() {
         return doctorId;
     }
 
@@ -79,7 +79,7 @@ public class Doctor {
         return doctorAddress;
     }
 
-    public void setdoctorAddress(String doctor_address) {
+    public void setDoctorAddress(String doctor_address) {
         this.doctorAddress = doctor_address;
     }
 

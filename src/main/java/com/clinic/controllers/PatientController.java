@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/patient")
+@RequestMapping("/patients")
 public class PatientController {
 
     @Autowired
@@ -32,7 +32,7 @@ public class PatientController {
         }
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public void add(@RequestBody Patient patient) {
         patientService.savePatient(patient);
     }
@@ -41,7 +41,7 @@ public class PatientController {
     public ResponseEntity<?> update(@RequestBody Patient patient, @PathVariable Integer id) {
         try {
             Patient existPatient = patientService.getPatient(id);
-            patient.setPatient_id(id);
+            patient.setPatientId(id);
             patientService.savePatient(patient);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException e) {

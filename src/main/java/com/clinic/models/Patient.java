@@ -7,20 +7,20 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "patient")
+@Table(name = "patients")
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int patient_id;
+    private int patientId;
 
-    private String patient_name;
-    private String patient_surname;
-    private String patient_email;
-    private String patient_address;
-    private Date patient_birthdate;
-    private String patient_fiscode;
+    private String patientName;
+    private String patientSurname;
+    private String patientEmail;
+    private String patientAddress;
+    private Date patientBirthdate;
+    private String patientFiscode;
 
-    @OneToMany(mappedBy = "patient_id")
+    @OneToMany(mappedBy = "patient")
     @JsonIgnore
     private List<Appointment> appointments;
 
@@ -35,71 +35,71 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(int patient_id, String patient_name, String patient_surname, String patient_email, String patient_address, Date patient_birthdate, String patient_fiscode, List<Appointment> appointments) {
-        this.patient_id = patient_id;
-        this.patient_name = patient_name;
-        this.patient_surname = patient_surname;
-        this.patient_email = patient_email;
-        this.patient_address = patient_address;
-        this.patient_birthdate = patient_birthdate;
-        this.patient_fiscode = patient_fiscode;
+    public Patient(int patientId, String patientName, String patientSurname, String patientEmail, String patientAddress, Date patientBirthdate, String patientFiscode, List<Appointment> appointments) {
+        this.patientId = patientId;
+        this.patientName = patientName;
+        this.patientSurname = patientSurname;
+        this.patientEmail = patientEmail;
+        this.patientAddress = patientAddress;
+        this.patientBirthdate = patientBirthdate;
+        this.patientFiscode = patientFiscode;
         this.appointments = appointments;
     }
 
-    public String getPatient_fiscode() {
-        return patient_fiscode;
+    public String getPatientFiscode() {
+        return patientFiscode;
     }
 
-    public void setPatient_fiscode(String patient_fiscode) {
-        this.patient_fiscode = patient_fiscode;
+    public void setPatientFiscode(String patientFiscode) {
+        this.patientFiscode = patientFiscode;
     }
 
-    public int getPatient_id() {
-        return patient_id;
+    public int getPatientId() {
+        return patientId;
     }
 
-    public void setPatient_id(int patient_id) {
-        this.patient_id = patient_id;
+    public void setPatientId(int patientId) {
+        this.patientId = patientId;
     }
 
-    public String getPatient_name() {
-        return patient_name;
+    public String getPatientName() {
+        return patientName;
     }
 
-    public void setPatient_name(String patient_name) {
-        this.patient_name = patient_name;
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
     }
 
-    public String getPatient_surname() {
-        return patient_surname;
+    public String getPatientSurname() {
+        return patientSurname;
     }
 
-    public void setPatient_surname(String patient_surname) {
-        this.patient_surname = patient_surname;
+    public void setPatientSurname(String patientSurname) {
+        this.patientSurname = patientSurname;
     }
 
-    public String getPatient_email() {
-        return patient_email;
+    public String getPatientEmail() {
+        return patientEmail;
     }
 
-    public void setPatient_email(String patient_email) {
-        this.patient_email = patient_email;
+    public void setPatientEmail(String patientEmail) {
+        this.patientEmail = patientEmail;
     }
 
-    public String getPatient_address() {
-        return patient_address;
+    public String getPatientAddress() {
+        return patientAddress;
     }
 
-    public void setPatient_address(String patient_address) {
-        this.patient_address = patient_address;
+    public void setPatientAddress(String patientAddress) {
+        this.patientAddress = patientAddress;
     }
 
-    public Date getPatient_birthdate() {
-        return patient_birthdate;
+    public Date getPatientBirthdate() {
+        return patientBirthdate;
     }
 
-    public void setPatient_birthdate(Date patient_birthdate) {
-        this.patient_birthdate = patient_birthdate;
+    public void setPatientBirthdate(Date patientBirthdate) {
+        this.patientBirthdate = patientBirthdate;
     }
 
 }

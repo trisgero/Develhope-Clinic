@@ -4,70 +4,69 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
-@Table(name = "appointment")
+@Table(name = "appointments")
 
 public class Appointment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int appointment_id;
+    private int appointmentId;
 
     @ManyToOne
-    @JoinColumn(name = "patient_id")
+    @JoinColumn(name = "patientId")
     @JsonIgnore
-    private Patient patient_id;
+    private Patient patient;
 
     @ManyToOne
-    @JoinColumn(name = "doctor_id")
+    @JoinColumn(name = "doctorId")
     @JsonIgnore
-    private Doctor doctor_id;
+    private Doctor doctor;
 
-    private Date appointment_date;
+    private Date appointmentDate;
 
     public Appointment() {
     }
 
-    public Appointment(int appointment_id, Patient patient_id, Doctor doctor_id, Date appointment_date) {
-        this.appointment_id = appointment_id;
-        this.patient_id = patient_id;
-        this.doctor_id = doctor_id;
-        this.appointment_date = appointment_date;
+    public Appointment(int appointmentId, Patient patientId, Doctor doctorId, Date appointmentDate) {
+        this.appointmentId = appointmentId;
+        this.patient = patientId;
+        this.doctor = doctorId;
+        this.appointmentDate = appointmentDate;
     }
 
-    public int getAppointment_id() {
-        return appointment_id;
+    public int getAppointmentId() {
+        return appointmentId;
     }
 
-    public Patient getPatient_id() {
-        return patient_id;
+    public Patient getPatientId() {
+        return patient;
     }
 
 
-    public Doctor getDoctor_id() {
-        return doctor_id;
+    public Doctor getDoctorId() {
+        return doctor;
     }
 
-    public Date getAppointment_date() {
-        return appointment_date;
+    public Date getAppointmentDate() {
+        return appointmentDate;
     }
 
-    public void setAppointment_id(int appointment_id) {
-        this.appointment_id = appointment_id;
+    public void setAppointmentId(int appointment_id) {
+        this.appointmentId = appointment_id;
     }
 
-    public void setPatient_id(Patient patient_id) {
-        this.patient_id = patient_id;
+    public void setPatientId(Patient id) {
+        this.patient = id;
     }
 
-    public void setDoctor_id(Doctor doctor_id) {
-        this.doctor_id = doctor_id;
+    public void setDoctorId(Doctor id) {
+        this.doctor = id;
     }
 
-    public void setAppointment_date(Date appointment_date) {
-        this.appointment_date = appointment_date;
+    public void setAppointmentDate(Date appointment_date) {
+        this.appointmentDate = appointment_date;
     }
 
 }

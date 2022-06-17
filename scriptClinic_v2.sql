@@ -10,9 +10,9 @@ CREATE TABLE `doctors` (
   `doctor_telephone` varchar(15) DEFAULT NULL,
   `doctor_specialization` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`doctor_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
-select * from doctors;
+
 INSERT INTO `doctors` VALUES
 (68,'Diana ','Sandi','Rotonda Barone 33','398 232 0803','Allergist'),
 (213,'Flavio ','Fagotto','Borgo Miriam 9','357 927 468','Dermatologist'),
@@ -31,9 +31,9 @@ CREATE TABLE `patients` (
   `patient_birthdate` date DEFAULT NULL,
   `patient_fiscode` varchar(16) DEFAULT NULL,
   PRIMARY KEY (`patient_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
-select * from patients;
+
 INSERT INTO `patients` VALUES 
 (1,'Marcantonio','Piazzi','marcantoniopiazzi@gmail.com','Via dei mille 15','1997-11-11','CAFBGE56F78H268T'),
 (2,'Luca','Rossi','lucarossi@yahoo.com','Via Roma 20','1998-12-15','SFJCUT94I90H386O'),
@@ -54,7 +54,7 @@ INSERT INTO `patients` VALUES
 
 
 CREATE TABLE `receipts` (
-  `receipt_id` int NOT NULL DEFAULT '0' AUTO_INCREMENT,
+  `receipt_id` int NOT NULL AUTO_INCREMENT,
   `receipt_description` varchar(400) DEFAULT NULL,
   `patient_ID` int NOT NULL,
   `doctor_ID` int NOT NULL,
@@ -63,9 +63,9 @@ CREATE TABLE `receipts` (
   KEY `patientID_idx` (`patient_ID`),
   CONSTRAINT `doctorID` FOREIGN KEY (`doctor_ID`) REFERENCES `doctors` (`doctor_id`),
   CONSTRAINT `patientID` FOREIGN KEY (`patient_ID`) REFERENCES `patients` (`patient_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
-select * from receipts;
+
 INSERT INTO `receipts` VALUES
 (1,'Tachipirina per la febbre',1,68),
 (2,'Oki per mal di testa',9,213),

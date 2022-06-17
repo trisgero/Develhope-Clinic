@@ -35,7 +35,7 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(int patientId, String patientName, String patientSurname, String patientEmail, String patientAddress, LocalDate patientBirthdate, String patientFiscode, List<Appointment> appointments) {
+    public Patient(int patientId, String patientName, String patientSurname, String patientEmail, String patientAddress, LocalDate patientBirthdate, String patientFiscode) {
         this.patientId = patientId;
         this.patientName = patientName;
         this.patientSurname = patientSurname;
@@ -43,7 +43,6 @@ public class Patient {
         this.patientAddress = patientAddress;
         this.patientBirthdate = patientBirthdate;
         this.patientFiscode = patientFiscode;
-        this.appointments = appointments;
     }
 
     public String getPatientFiscode() {

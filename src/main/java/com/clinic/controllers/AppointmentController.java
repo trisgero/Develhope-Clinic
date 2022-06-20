@@ -60,6 +60,7 @@ public class AppointmentController {
     }
 
 
+
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@RequestBody Appointment appointment, @PathVariable Integer appointment_id) {
         try {

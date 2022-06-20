@@ -49,7 +49,6 @@ public class PatientController {
                             a.getAppointmentDate()));
         }
         return appointmentsDTO;
-
     }
 
     @PostMapping("")

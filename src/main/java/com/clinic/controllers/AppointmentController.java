@@ -5,6 +5,7 @@ import com.clinic.services.AppointmentService;
 import com.clinic.services.DoctorService;
 import com.clinic.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -48,7 +49,7 @@ public class AppointmentController {
 
     @PostMapping("/add")
     public void addAppointment(
-            @RequestParam LocalDate appointmentDate,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate appointmentDate,
             @RequestParam int doctorId,
             @RequestParam int patientId) {
         Appointment newAppointment = new Appointment();

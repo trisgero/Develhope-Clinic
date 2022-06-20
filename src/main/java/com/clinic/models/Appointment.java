@@ -17,12 +17,10 @@ public class Appointment {
 
     @ManyToOne
     @JoinColumn(name = "patientId")
-    @JsonIgnore
     private Patient patient;
 
     @ManyToOne
     @JoinColumn(name = "doctorId")
-    @JsonIgnore
     private Doctor doctor;
 
     private LocalDate appointmentDate;

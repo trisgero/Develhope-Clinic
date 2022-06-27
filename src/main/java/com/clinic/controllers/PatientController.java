@@ -45,7 +45,7 @@ public class PatientController {
                             a.getAppointmentId(),
                             a.getPatient().getPatientId(),
                             a.getPatient().getPatientName() + " " + a.getPatient().getPatientSurname(),
-                            a.getDoctor().getDoctorName() + a.getDoctor().getDoctorSurname(),
+                            a.getDoctor().getDoctorName() + " " + a.getDoctor().getDoctorSurname(),
                             a.getAppointmentDate()));
         }
         return appointmentsDTO;
@@ -59,7 +59,7 @@ public class PatientController {
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@RequestBody Patient patient, @PathVariable Integer id) {
         try {
-            Patient existPatient = patientService.getPatient(id);
+            patientService.getPatient(id);
             patient.setPatientId(id);
             patientService.savePatient(patient);
             return new ResponseEntity<>(HttpStatus.OK);

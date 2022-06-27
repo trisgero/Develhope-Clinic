@@ -60,22 +60,8 @@ public class AppointmentController {
     }
 
 
-
-    @PutMapping("/{id}")
-    public ResponseEntity<?> update(@RequestBody Appointment appointment, @PathVariable Integer appointment_id) {
-        try {
-            Appointment existAppointment = appointmentService.getAppointment(appointment_id);
-            appointment.setAppointmentId(appointment_id);
-            appointmentService.saveAppointment(appointment);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (NoSuchElementException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer appointment_id) {
-
         appointmentService.deleteAppointment(appointment_id);
     }
 }

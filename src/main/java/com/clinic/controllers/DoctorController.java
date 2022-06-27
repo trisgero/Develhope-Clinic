@@ -5,6 +5,7 @@ import com.clinic.models.Appointment;
 import com.clinic.models.Doctor;
 import com.clinic.services.AppointmentService;
 import com.clinic.services.DoctorService;
+import com.clinic.services.ReceiptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +24,11 @@ public class DoctorController {
 
     @Autowired
     AppointmentService appointmentService;
+    @Autowired
+    ReceiptService receiptService;
 
     @GetMapping("")
-    public List<Doctor> listDoctor(){
+    public List<Doctor> listDoctor() {
         return doctorService.listAllDoctor();
     }
 
@@ -38,17 +41,18 @@ public class DoctorController {
             return new ResponseEntity<Doctor>(HttpStatus.NOT_FOUND);
         }
     }
+
     @GetMapping("/{id}/appointments")
-    public List<AppointmentDTO> getDoctorAppointmentByDoctorId(@PathVariable Integer id){
+    public List<AppointmentDTO> getDoctorAppointmentByDoctorId(@PathVariable Integer id) {
         List<AppointmentDTO> appointmentsDTO = new ArrayList<>();
         List<Appointment> appointments = doctorService.getDoctor(id).getAppointments();
-        for (Appointment a : appointments){
+        for (Appointment a : appointments) {
             appointmentsDTO.add(
                     new AppointmentDTO(
                             a.getAppointmentId(),
                             a.getPatient().getPatientId(),
-                            a.getPatient().getPatientName()+ " " +a.getPatient().getPatientSurname(),
-                            a.getDoctor().getDoctorName() + a.getDoctor().getDoctorSurname(),
+                            a.getPatient().getPatientName() + " " + a.getPatient().getPatientSurname(),
+                            a.getDoctor().getDoctorName() + " " + a.getDoctor().getDoctorSurname(),
                             a.getAppointmentDate()));
         }
         return appointmentsDTO;
@@ -61,10 +65,10 @@ public class DoctorController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@RequestBody Doctor doctor, @PathVariable Integer doctor_id) {
+    public ResponseEntity<?> updateDoctor(@RequestBody Doctor doctor, @PathVariable Integer id) {
         try {
-            Doctor existDoctor = doctorService.getDoctor(doctor_id);
-            doctor.setDoctorId(doctor_id);
+            doctorService.getDoctor(id);
+            doctor.setDoctorId(id);
             doctorService.saveDoctor(doctor);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException e) {
@@ -73,8 +77,8 @@ public class DoctorController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer doctor_id) {
-        doctorService.deleteDoctor(doctor_id);
+    public void delete(@PathVariable Integer id) {
+        doctorService.deleteDoctor(id);
     }
 
 }

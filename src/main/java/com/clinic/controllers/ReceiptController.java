@@ -37,18 +37,6 @@ public class ReceiptController {
         receiptService.saveReceipt(receipt);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> update(@RequestBody Receipt receipt, @PathVariable Integer id) {
-        try {
-            Receipt existReceipt = receiptService.getReceipt(id);
-            receipt.setReceipt_id(receipt.getReceipt_id());
-            receiptService.saveReceipt(receipt);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (NoSuchElementException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         receiptService.deleteReceipt(id);

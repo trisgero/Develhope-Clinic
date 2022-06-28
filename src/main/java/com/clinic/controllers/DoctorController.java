@@ -67,9 +67,72 @@ public class DoctorController {
     @PutMapping("/{id}")
     public ResponseEntity<?> updateDoctor(@RequestBody Doctor doctor, @PathVariable Integer id) {
         try {
-            doctorService.getDoctor(id);
+            Doctor existingDoctor = doctorService.getDoctor(id);
             doctor.setDoctorId(id);
+            //if (!existingDoctor.getDoctorName().equals(doctor.getDoctorName())) {
+            //    existingDoctor.setDoctorName(doctor.getDoctorName());
+            //}
             doctorService.saveDoctor(doctor);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/{id}/updateDoctorName")
+    public ResponseEntity<?> updateDoctorName(@RequestParam String doctorName, @PathVariable Integer id) {
+        try {
+            Doctor existingDoctor = doctorService.getDoctor(id);
+            existingDoctor.setDoctorName(doctorName);
+            doctorService.saveDoctor(existingDoctor);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/{id}/updateDoctorSurname")
+    public ResponseEntity<?> updateDoctorSurname(@RequestParam String doctorSurname, @PathVariable Integer id) {
+        try {
+            Doctor existingDoctor = doctorService.getDoctor(id);
+            existingDoctor.setDoctorSurname(doctorSurname);
+            doctorService.saveDoctor(existingDoctor);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/{id}/updateDoctorTelephone")
+    public ResponseEntity<?> updateDoctorTelephone(@RequestParam String doctorTelephone, @PathVariable Integer id) {
+        try {
+            Doctor existingDoctor = doctorService.getDoctor(id);
+            existingDoctor.setDoctorTelephone(doctorTelephone);
+            doctorService.saveDoctor(existingDoctor);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/{id}/updateDoctorAddress")
+    public ResponseEntity<?> updateDoctorAddress(@RequestParam String doctorAddress, @PathVariable Integer id) {
+        try {
+            Doctor existingDoctor = doctorService.getDoctor(id);
+            existingDoctor.setDoctorAddress(doctorAddress);
+            doctorService.saveDoctor(existingDoctor);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/{id}/updateDoctorSpecialization")
+    public ResponseEntity<?> updateDoctorSpecialization(@RequestParam String doctorSpecialization, @PathVariable Integer id) {
+        try {
+            Doctor existingDoctor = doctorService.getDoctor(id);
+            existingDoctor.setDoctorSpecialization(doctorSpecialization);
+            doctorService.saveDoctor(existingDoctor);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

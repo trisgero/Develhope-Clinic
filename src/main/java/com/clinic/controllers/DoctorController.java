@@ -58,25 +58,9 @@ public class DoctorController {
         return appointmentsDTO;
     }
 
-
     @PostMapping("")
     public void add(@RequestBody Doctor doctor) {
         doctorService.saveDoctor(doctor);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<?> updateDoctor(@RequestBody Doctor doctor, @PathVariable Integer id) {
-        try {
-            Doctor existingDoctor = doctorService.getDoctor(id);
-            doctor.setDoctorId(id);
-            //if (!existingDoctor.getDoctorName().equals(doctor.getDoctorName())) {
-            //    existingDoctor.setDoctorName(doctor.getDoctorName());
-            //}
-            doctorService.saveDoctor(doctor);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (NoSuchElementException e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
     }
 
     @PutMapping("/{id}/updateDoctorName")
@@ -143,5 +127,5 @@ public class DoctorController {
     public void delete(@PathVariable Integer id) {
         doctorService.deleteDoctor(id);
     }
-
+    
 }

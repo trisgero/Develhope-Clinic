@@ -3,6 +3,7 @@ package com.clinic.controllers;
 import com.clinic.DTO.AppointmentDTO;
 import com.clinic.models.Appointment;
 import com.clinic.models.Patient;
+import com.clinic.models.Patient;
 import com.clinic.services.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -67,6 +68,54 @@ public class PatientController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    @PutMapping("/{id}/updatePatientName")
+    public ResponseEntity<?> updatePatientName(@RequestParam String patientName, @PathVariable Integer id) {
+        try {
+            Patient existingPatient = patientService.getPatient(id);
+            existingPatient.setPatientName(patientName);
+            patientService.savePatient(existingPatient);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/{id}/updatePatientSurname")
+    public ResponseEntity<?> updatePatientSurname(@RequestParam String patientSurname, @PathVariable Integer id) {
+        try {
+            Patient existingPatient = patientService.getPatient(id);
+            existingPatient.setPatientSurname(patientSurname);
+            patientService.savePatient(existingPatient);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/{id}/updatePatientTelephone")
+    public ResponseEntity<?> updatePatientTelephone(@RequestParam String patientEmail, @PathVariable Integer id) {
+        try {
+            Patient existingPatient = patientService.getPatient(id);
+            existingPatient.setPatientEmail(patientEmail);
+            patientService.savePatient(existingPatient);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PutMapping("/{id}/updatePatientAddress")
+    public ResponseEntity<?> updatePatientAddress(@RequestParam String patientAddress, @PathVariable Integer id) {
+        try {
+            Patient existingPatient = patientService.getPatient(id);
+            existingPatient.setPatientAddress(patientAddress);
+            patientService.savePatient(existingPatient);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (NoSuchElementException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {

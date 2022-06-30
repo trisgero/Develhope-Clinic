@@ -4,6 +4,7 @@ import com.clinic.models.Appointment;
 import com.clinic.services.AppointmentService;
 import com.clinic.services.DoctorService;
 import com.clinic.services.PatientService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -28,11 +29,13 @@ public class AppointmentController {
 
 
     @GetMapping("")
+    @ApiOperation(value = "Function that returns all appointments", notes = "returns all Appointments present in the DB")
     public List<Appointment> listAppointment() {
         return appointmentService.listAllAppointment();
     }
 
     @GetMapping("/{id}")
+    @ApiOperation(value = "Function that returns doctor by appointmentId", notes = "returns a Appointment from appointment_Id")
     public ResponseEntity<Appointment> get(@PathVariable Integer id) {
         try {
             Appointment appointment = appointmentService.getAppointment(id);
@@ -42,12 +45,13 @@ public class AppointmentController {
         }
     }
 
-    @PostMapping("")
-    public void add(@RequestBody Appointment appointment) {
-        appointmentService.saveAppointment(appointment);
-    }
+//    @PostMapping("")
+//    public void add(@RequestBody Appointment appointment) {
+//        appointmentService.saveAppointment(appointment);
+//    }
 
     @PostMapping("/add")
+    @ApiOperation(value = "Function that inserts a single appointment")
     public void addAppointment(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate appointmentDate,
             @RequestParam int doctorId,
@@ -61,6 +65,7 @@ public class AppointmentController {
 
 
     @DeleteMapping("/{id}")
+    @ApiOperation(value = "Function that deletes a single appointment")
     public void delete(@PathVariable Integer appointment_id) {
         appointmentService.deleteAppointment(appointment_id);
     }

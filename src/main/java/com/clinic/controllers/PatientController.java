@@ -92,7 +92,7 @@ public class PatientController {
         }
     }
 
-    @PutMapping("/{id}/updatePatientTelephone")
+    @PutMapping("/{id}/updatePatientEmail")
     public ResponseEntity<?> updatePatientTelephone(@RequestParam String patientEmail, @PathVariable Integer id) {
         try {
             Patient existingPatient = patientService.getPatient(id);

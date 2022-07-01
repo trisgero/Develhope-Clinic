@@ -42,7 +42,7 @@ public class ReceiptController {
     }
 
     @DeleteMapping("/{id}")
-    @ApiOperation(value = "Function that deletes a single receipt")
+    @ApiOperation(value = "Function that delete a single receipt")
     public void delete(@PathVariable Integer id) {
         receiptService.deleteReceipt(id);
     }

@@ -23,11 +23,6 @@ public class DoctorController {
     @Autowired
     DoctorService doctorService;
 
-    @Autowired
-    AppointmentService appointmentService;
-    @Autowired
-    ReceiptService receiptService;
-
     @GetMapping("")
     @ApiOperation(value = "Function that returns all doctors", notes = "returns all Doctors present in the DB")
     public List<Doctor> listDoctor() {
@@ -134,7 +129,7 @@ public class DoctorController {
     }
 
     @DeleteMapping("/{id}")
-    @ApiOperation(value = "Function that deletes a single doctor")
+    @ApiOperation(value = "Function that delete a single doctor")
     public void delete(@PathVariable Integer id) {
         doctorService.deleteDoctor(id);
     }

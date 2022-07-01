@@ -62,17 +62,6 @@ public class PatientController {
         patientService.savePatient(patient);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<?> update(@RequestBody Patient patient, @PathVariable Integer id) {
-//        try {
-//            patientService.getPatient(id);
-//            patient.setPatientId(id);
-//            patientService.savePatient(patient);
-//            return new ResponseEntity<>(HttpStatus.OK);
-//        } catch (NoSuchElementException e) {
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//        }
-//    }
     @PutMapping("/{id}/updatePatientName")
     @ApiOperation(value = "Function that modifies patientName of a single patient", notes = "returns a HTTP 200 OK, else HTTP 404 NOT FOUND")
     public ResponseEntity<?> updatePatientName(@RequestParam String patientName, @PathVariable Integer id) {
@@ -101,7 +90,7 @@ public class PatientController {
 
     @PutMapping("/{id}/updatePatientEmail")
     @ApiOperation(value = "Function that modifies patientEmail of a single patient", notes = "returns a HTTP 200 OK, else HTTP 404 NOT FOUND")
-    public ResponseEntity<?> updatePatientTelephone(@RequestParam String patientEmail, @PathVariable Integer id) {
+    public ResponseEntity<?> updatePatientEmail(@RequestParam String patientEmail, @PathVariable Integer id) {
         try {
             Patient existingPatient = patientService.getPatient(id);
             existingPatient.setPatientEmail(patientEmail);
@@ -127,7 +116,7 @@ public class PatientController {
 
 
     @DeleteMapping("/{id}")
-    @ApiOperation(value = "Function that deletes a single patient")
+    @ApiOperation(value = "Function that delete a single patient")
     public void delete(@PathVariable Integer id) {
         patientService.deletePatient(id);
     }

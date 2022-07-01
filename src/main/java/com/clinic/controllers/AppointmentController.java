@@ -45,10 +45,6 @@ public class AppointmentController {
         }
     }
 
-//    @PostMapping("")
-//    public void add(@RequestBody Appointment appointment) {
-//        appointmentService.saveAppointment(appointment);
-//    }
 
     @PostMapping("/add")
     @ApiOperation(value = "Function that inserts a single appointment")
@@ -65,7 +61,7 @@ public class AppointmentController {
 
 
     @DeleteMapping("/{id}")
-    @ApiOperation(value = "Function that deletes a single appointment")
+    @ApiOperation(value = "Function that delete a single appointment")
     public void delete(@PathVariable Integer appointment_id) {
         appointmentService.deleteAppointment(appointment_id);
     }
